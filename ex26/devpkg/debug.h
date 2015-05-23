@@ -1,4 +1,4 @@
-#ifndef _debug_h_
+#ifndef _debug_h
 #define _debug_h
 
 #include <stdio.h>

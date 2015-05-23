@@ -94,7 +94,7 @@ int DB_init() {
         DB_close(db);
     }
 
-    apr_tool_destroy(p);
+    apr_pool_destroy(p);
     return 0;
 
 error:
