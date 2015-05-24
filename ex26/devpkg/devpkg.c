@@ -62,9 +62,6 @@ int main(int argc, char *argv[]) {
                 request = COMMAND_BUILD;
                 url = optarg;
                 break;
-
-            default:
-                sentinel("Invalid argument.");
         }
     }
 

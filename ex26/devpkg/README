@@ -1,0 +1,40 @@
+devpkg is a tool to install and manage packages.It tracks all the installed
+packages by logging their source file URLs in a database file. Every time 
+when a new package needs to be installed, devpkg will check the database
+if this package has already been installed. If not, the tool will fetch the
+source file from the URL given by the user into a temp directory, then 
+configure, make and install the package. After the package is installed, 
+all the temp directories will be deleted. 
+
+
+OPTIONS:
+
+-S: Initialize the database file. This must be done before using the tool. 
+
+-L: List the URL of all the installed packages logged by the database. 
+
+-F URL: Fetch the source file located by the URL to BUILD_DIR (.git), 
+TAR_GZ_SRC (.tar.gz) or TAR_BZ2_SRC (.tar.bz2). If the target is a tar-ball,
+it will be untared into BUILD_DIR. Everything in BUILD_DIR is ready to be 
+configured, built and installed. 
+
+-B URL: Configure, build and install whatever is in BUILD_DIR. If installed
+successfully the URL will be logged in the database. (This is actually buggy, 
+What if the URL you feed to the command is not the source file stored in
+BUILD_DIR??) 
+
+-I URL: Combination of FETCH&BUILD commands.  
+
+-c CONFIGURE_OPTION: Used together with BUILD/INSTALL
+
+-m MAKE_OPTION: Used together with BUILD/INSTALL
+
+-i INSTALL_OPTION: Used together with BUILD/INSTALL
+
+
+KEY DIRECTORIES:
+
+BUILD_DIR = "/tmp/pkg-build"
+TAR_GZ_SRC = "/tmp/pkg-src.tar.gz"
+TAR_BZ2_SRC = "/tmp/pkg-src.tar.bz2"
+

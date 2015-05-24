@@ -29,6 +29,11 @@ int Shell_exec(Shell template, ...) {
         }
     }
 
+    // Debug only
+    log_info("Current command: %s %s %s %s", 
+            template.args[0], template.args[1],
+            template.args[2], template.args[3]);
+
     rc = Shell_run(p, &template);
     apr_pool_destroy(p);
     va_end(argp);
